@@ -1,3 +1,7 @@
 node {
-  sh 'echo hello world 3'
+  stage 'build'
+  sh 'build something'
+
+  stage 'package'
+  docker.build('willcodeforfoo/jenkins-pipeline-test').push()
 }
