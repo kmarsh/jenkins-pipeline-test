@@ -1,7 +1,10 @@
 node {
-  stage 'build'
+  stage "Checkout"
+  checkout scm
+
+  stage 'Build'
   sh 'build something'
 
-  stage 'package'
+  stage 'Package'
   docker.build('willcodeforfoo/jenkins-pipeline-test').push()
 }
